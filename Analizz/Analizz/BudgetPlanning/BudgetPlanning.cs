@@ -61,17 +61,21 @@ namespace Analizz.Option
         public static void AddIncome() // Метод добавление запланированного дохода 
         {
             Console.Clear();
-
+            Console.ForegroundColor= ConsoleColor.Blue;
             Console.WriteLine("Добавление дохода");
             Console.WriteLine("Введите сумму дохода: ");
-            decimal sum = int.Parse(Console.ReadLine());
+            Console.ForegroundColor = ConsoleColor.White;
+            decimal sum = ReadLineDecimal();
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Введите описание: ");
+            Console.ForegroundColor = ConsoleColor.White;
             string input = Console.ReadLine();
 
             BudgetPlanningOption budget = new BudgetPlanningOption();
             budget.Amount = sum;
             budget.Description = input;
             income.Add(budget);
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Данные успешно сохранены");
             Console.WriteLine($"Нажмите Enter чтобы продолжить или Escape для выхода");
 
@@ -84,11 +88,14 @@ namespace Analizz.Option
         public static void AddExpenses() // Добавление запланированного расхода
         {
             Console.Clear();
-
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Добавление запланированного расхода");
             Console.WriteLine("Введите сумму расхода: ");
-            decimal sum = int.Parse(Console.ReadLine());
+            Console.ForegroundColor = ConsoleColor.White;
+            decimal sum = ReadLineDecimal();
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Введите описание: ");
+            Console.ForegroundColor = ConsoleColor.White;
             string input = Console.ReadLine();
 
             BudgetPlanningOption budget = new BudgetPlanningOption();
@@ -107,6 +114,7 @@ namespace Analizz.Option
 
         public static void RemoveBudget() // Метод удаления запланированного Бюджета
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Удаление");
             ConsoleKeyInfo keyInfo;
             int number = 0;
@@ -130,10 +138,10 @@ namespace Analizz.Option
 
                 keyInfo = Console.ReadKey(true);
 
-                if (keyInfo.Key == ConsoleKey.UpArrow) { number = (number - 1 + titlesRemove.Count()) % titles.Count(); }
-                if (keyInfo.Key == ConsoleKey.DownArrow) { number = (number + 1) % titlesRemove.Count(); }
+                if (keyInfo.Key == ConsoleKey.UpArrow) { number = (number - 1 + titlesRemove.Count()) % titlesRemove.Count(); }
+                else if (keyInfo.Key == ConsoleKey.DownArrow) { number = (number + 1) % titlesRemove.Count(); }
 
-                if (keyInfo.Key == ConsoleKey.Enter)
+                else if (keyInfo.Key == ConsoleKey.Enter)
                 {
                     if (number == 0)
                         RemoveIncome();
@@ -150,10 +158,10 @@ namespace Analizz.Option
         public static void RemoveIncome()
         {
             Console.Clear();
-            if (expenses.Count == 0)
+            if (income.Count == 0)
             {
                 Console.WriteLine("Нету данных для удаления");
-                Console.ReadKey();
+                Console.ReadKey(true);
                 return;
             }
 
@@ -163,7 +171,7 @@ namespace Analizz.Option
                 Console.WriteLine($"{count++} - Сумма: {incomeItem.Amount}, описание: {incomeItem.Description}");
             }
             Console.WriteLine("Выберите число для удаления: ");
-            int input = int.Parse(Console.ReadLine());
+            int input = ReadLineInt();
             income.RemoveAt(input);
 
             Console.WriteLine("Данные успешно удалены");
@@ -181,7 +189,7 @@ namespace Analizz.Option
             if (expenses.Count == 0)
             {
                 Console.WriteLine("Нету данных для удаления");
-                Console.ReadKey();
+                Console.ReadKey(true);
                 return;
             }
 
@@ -191,7 +199,7 @@ namespace Analizz.Option
                 Console.WriteLine($"{count++} - Сумма: {expensesItem.Amount}, описание: {expensesItem.Description}");
             }
             Console.WriteLine("Выберите число для удаления: ");
-            int input = int.Parse(Console.ReadLine());
+            int input = ReadLineInt();
             expenses.RemoveAt(input);
 
             Console.WriteLine("Данные успешно удалены");
@@ -202,6 +210,42 @@ namespace Analizz.Option
                 return;
             else if (keyInfo.Key == ConsoleKey.Enter)
                 RemoveExpenses();
+        }
+        public static decimal ReadLineDecimal()
+        {
+            decimal sum = 0;
+            while (true)
+            {   
+                bool checkParse = decimal.TryParse(Console.ReadLine(), out sum);
+                if (checkParse == false)
+                {
+                    Console.WriteLine("Ошибка! Введите еще раз!");
+                }
+                else
+                {
+                    break;
+                }
+            }
+            return sum;
+
+        }
+        public static int ReadLineInt()
+        {
+            int sum = 0;
+            while (true)
+            {
+                bool checkParse = int.TryParse(Console.ReadLine(), out sum);
+                if (checkParse == false)
+                {
+                    Console.WriteLine("Ошибка! Введите еще раз!");
+                }
+                else
+                {
+                    break;
+                }
+            }
+            return sum;
+
         }
 
     }
