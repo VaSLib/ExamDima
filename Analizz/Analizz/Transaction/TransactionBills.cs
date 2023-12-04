@@ -15,25 +15,50 @@ namespace Analizz.Option
         public static List<TransactionOption> GetIncome() => income; // Метод получения доход ->для АдилБайке
         public static List<TransactionOption> GetExpenses() => expenses;// Метод получения расхода ->для АдилБайке 
 
-
-
-
-        public static void AddIncome() // Метод добавление дохода
+        public static void AddIncome()
         {
             Console.Clear();
-            Console.WriteLine("Метод добавление дохода");
-            Console.ReadKey();
+
+            Console.WriteLine("Введите категорию дохода:");
+            string? category = Console.ReadLine();
+
+            Console.WriteLine("Введите сумму дохода:");
+            decimal amount = Convert.ToDecimal(Console.ReadLine());
+
+            TransactionOption incomeItem = new TransactionOption()
+            {
+                Date = DateTime.Now,
+                Description = category,
+                Amount = amount
+            };
+
+            income.Add(incomeItem);
+
+
+            Console.ReadLine();
 
         }
 
-        public static void AddExpenses() // Метод добавление расхода
+        public static void AddExpenses()
         {
             Console.Clear();
-            Console.WriteLine("Метод добавление расхода");
-            Console.ReadKey();
+            Console.WriteLine("Введите категорию расхода:");
+            string? category = Console.ReadLine();
+
+            Console.WriteLine("Введите сумму расхода:");
+            decimal amount = Convert.ToDecimal(Console.ReadLine());
+
+            TransactionOption expenseItem = new TransactionOption()
+            {
+                Date = DateTime.Now,
+                Description = category,
+                Amount = amount
+            };
+
+            expenses.Add(expenseItem);
+
+            Console.ReadLine();
 
         }
-
-        
     }
 }

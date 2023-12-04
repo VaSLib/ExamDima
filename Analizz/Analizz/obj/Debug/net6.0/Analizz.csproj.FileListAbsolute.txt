@@ -12,3 +12,17 @@ C:\Users\beksu\source\repos\ExamDima\Analizz\Analizz\obj\Debug\net6.0\refint\Ana
 C:\Users\beksu\source\repos\ExamDima\Analizz\Analizz\obj\Debug\net6.0\Analizz.pdb
 C:\Users\beksu\source\repos\ExamDima\Analizz\Analizz\obj\Debug\net6.0\Analizz.genruntimeconfig.cache
 C:\Users\beksu\source\repos\ExamDima\Analizz\Analizz\obj\Debug\net6.0\ref\Analizz.dll
+C:\Users\user\source\repos\ExamDima\Analizz\Analizz\bin\Debug\net6.0\Analizz.exe
+C:\Users\user\source\repos\ExamDima\Analizz\Analizz\bin\Debug\net6.0\Analizz.deps.json
+C:\Users\user\source\repos\ExamDima\Analizz\Analizz\bin\Debug\net6.0\Analizz.runtimeconfig.json
+C:\Users\user\source\repos\ExamDima\Analizz\Analizz\bin\Debug\net6.0\Analizz.dll
+C:\Users\user\source\repos\ExamDima\Analizz\Analizz\bin\Debug\net6.0\Analizz.pdb
+C:\Users\user\source\repos\ExamDima\Analizz\Analizz\obj\Debug\net6.0\Analizz.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\ExamDima\Analizz\Analizz\obj\Debug\net6.0\Analizz.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\ExamDima\Analizz\Analizz\obj\Debug\net6.0\Analizz.AssemblyInfo.cs
+C:\Users\user\source\repos\ExamDima\Analizz\Analizz\obj\Debug\net6.0\Analizz.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\ExamDima\Analizz\Analizz\obj\Debug\net6.0\Analizz.dll
+C:\Users\user\source\repos\ExamDima\Analizz\Analizz\obj\Debug\net6.0\refint\Analizz.dll
+C:\Users\user\source\repos\ExamDima\Analizz\Analizz\obj\Debug\net6.0\Analizz.pdb
+C:\Users\user\source\repos\ExamDima\Analizz\Analizz\obj\Debug\net6.0\Analizz.genruntimeconfig.cache
+C:\Users\user\source\repos\ExamDima\Analizz\Analizz\obj\Debug\net6.0\ref\Analizz.dll

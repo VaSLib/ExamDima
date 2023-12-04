@@ -24,7 +24,7 @@ namespace Analizz.Menu
             do
             {
                 PrintFirst("Главная");
-                Console.WriteLine("Баланс:" + User.option.Balance);
+                Console.WriteLine("Баланс:" + Balance.showCurrentBalance());
                 Console.WriteLine();
 
                 for (int NumberCinema = 0; NumberCinema < options.Count; NumberCinema++)
