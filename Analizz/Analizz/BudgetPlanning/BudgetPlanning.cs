@@ -22,7 +22,7 @@ namespace Analizz.Option
 
             Console.Clear();
             ConsoleKeyInfo keyInfo;
-            int number = 0;
+            int? number = 0;
 
             Console.WriteLine("1-Планирование дохода \n2-Планирование расхода \n3-Удаление запланированного Бюджета");
 

@@ -18,22 +18,109 @@ namespace Analizz.Option
 
 
 
-        public static void AddIncome() // Метод добавление дохода
+        public static void AddIncome()
         {
             Console.Clear();
-            Console.WriteLine("Метод добавление дохода");
-            Console.ReadKey();
+            Console.WriteLine("╔═══════════════════════════╗\n" +
+                              "║ Введите категорию дохода: ║\n" +
+                              "╚═══════════════════════════╝\n");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            string? category = Console.ReadLine();
+            Console.ResetColor();
+            Console.WriteLine(" ");
+
+
+            decimal amount;
+            while (true)
+            {
+                Console.WriteLine("╔═══════════════════════════╗\n" +
+                                  "║   Введите сумму дохода:   ║\n" +
+                                  "╚═══════════════════════════╝\n");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                string? amountInput = Console.ReadLine();
+                Console.ResetColor();
+                Console.WriteLine(" ");
+
+                if (decimal.TryParse(amountInput, out amount))
+                    break;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Некорректный ввод. Пожалуйста, введите числовое значение!");
+                Console.ResetColor();
+            }
+
+
+            TransactionOption incomeItem = new TransactionOption()
+            {
+                Date = DateTime.Now,
+                Description = category,
+                Amount = amount
+            };
+
+            income.Add(incomeItem);
+            Console.WriteLine("Доход успешно добавлен.");
+            foreach (TransactionOption item in income)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"Дата: {item.Date} \nКатегория: {item.Description} \nСумма: {item.Amount} сом");
+                Console.ResetColor();
+            }
+            Console.WriteLine("\nЧтобы вернуться назад нажмите на Enter");
+
+            Console.ReadLine();
 
         }
 
-        public static void AddExpenses() // Метод добавление расхода
+        public static void AddExpenses()
         {
             Console.Clear();
-            Console.WriteLine("Метод добавление расхода");
-            Console.ReadKey();
+            Console.WriteLine("╔════════════════════════════╗\n" +
+                              "║ Введите категорию расхода: ║\n" +
+                              "╚════════════════════════════╝\n");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            string? category = Console.ReadLine();
+            Console.ResetColor();
+            Console.WriteLine(" ");
+
+            decimal amount;
+            while (true)
+            {
+                Console.WriteLine("╔════════════════════════════╗\n" +
+                                  "║   Введите сумму расхода:   ║\n" +
+                                  "╚════════════════════════════╝\n");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                string? amountInput = Console.ReadLine();
+                Console.ResetColor();
+                Console.WriteLine(" ");
+
+                if (decimal.TryParse(amountInput, out amount))
+                    break;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Некорректный ввод. Пожалуйста, введите числовое значение!");
+                Console.ResetColor();
+            }
+
+
+            TransactionOption expenseItem = new TransactionOption()
+            {
+                Date = DateTime.Now,
+                Description = category,
+                Amount = amount
+            };
+
+            expenses.Add(expenseItem);
+            Console.WriteLine("Расход успешно добавлен.");
+            foreach (TransactionOption item in expenses)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"Дата: {item.Date} \nКатегория: {item.Description} \nСумма: {item.Amount} сом");
+                Console.ResetColor();
+
+            }
+            Console.WriteLine("\nЧтобы вернуться назад нажмите на Enter");
+
+            Console.ReadLine();
+
 
         }
-
-        
     }
 }

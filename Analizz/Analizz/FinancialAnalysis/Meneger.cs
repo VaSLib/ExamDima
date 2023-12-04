@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Analizz.FinancialAnalysis
 {
@@ -15,24 +16,63 @@ namespace Analizz.FinancialAnalysis
 
             Console.Clear();
             ConsoleKeyInfo keyInfo;
-            int number = 0;
+            int? number = 0;
 
-            Console.WriteLine("1-Финансовый анализ \n2-Графический отчет ");
+            List<string> Analysis = new List<string>() { "╔════════════════════╗\n" +
+                                                         "║ Финансовый анализ  ║\n"+
+                                                         "╚════════════════════╝"
+                                                       , "╔════════════════════╗\n" +
+                                                         "║ Графический отчет  ║\n" +
+                                                         "╚════════════════════╝" };
 
-            number = int.Parse(Console.ReadLine());
 
-            if (number == 1)
+            do
             {
-                FinancialAnalysis.Print();
-            }
-            else if (number == 2)
-            {
-                GraphicReports.Print();
-            }
-            else 
-            {
-                SelectAnalysis();
-            }
+                Console.Clear() ;
+                Console.WriteLine("Выбор отчета:");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine( "╔════════════════════╗");
+                Console.WriteLine($"║    Выбор отчета:   ║");
+                Console.WriteLine( "╚════════════════════╝\n");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.Black;
+
+
+
+                for (int NumberCinema = 0; NumberCinema < Analysis.Count; NumberCinema++)
+                {
+
+                    if (NumberCinema == number)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.BackgroundColor = ConsoleColor.White;
+                    }
+                    Console.WriteLine(Analysis[NumberCinema]);
+
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.Black;
+                }
+
+                keyInfo = Console.ReadKey(true);
+
+                if (keyInfo.Key == ConsoleKey.UpArrow) { number = (number - 1 + Analysis.Count()) % Analysis.Count(); }
+                if (keyInfo.Key == ConsoleKey.DownArrow) { number = (number + 1) % Analysis.Count(); }
+
+                if (keyInfo.Key == ConsoleKey.Enter && number ==0)
+                {
+                    FinancialAnalysis.Print();
+                }
+                if (keyInfo.Key == ConsoleKey.Enter && number == 1)
+                {
+                    GraphicReports.Print();
+                }
+                
+
+            } while (keyInfo.Key != ConsoleKey.Escape);
+
+
+
+          
         }
     }
 }

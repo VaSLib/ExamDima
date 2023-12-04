@@ -20,15 +20,17 @@ namespace Analizz.Menu
             ConsoleKeyInfo keyInfo;
             List<MenuOption> options = Menu.options;
             int number = 0;
+            
 
             do
             {
                 PrintFirst("Главная");
-                Console.WriteLine("Баланс:" + User.option.Balance);
-                Console.WriteLine();
+                
+              
 
                 for (int NumberCinema = 0; NumberCinema < options.Count; NumberCinema++)
                 {
+                    
                     if (NumberCinema == number)
                     {
                         Console.ForegroundColor = ConsoleColor.Black;
@@ -63,9 +65,20 @@ namespace Analizz.Menu
         public static void PrintFirst(string? name)
         {
             Console.Clear();
-            Console.BackgroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine($"      {name}      \n");
+            
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine( "╔════════════════════╗");
+            Console.WriteLine($"║       { name}      ║");
+            Console.WriteLine( "╚════════════════════╝");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Black;
+
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Баланс:" + Balance.showCurrentBalance());
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.WriteLine();
         }
 
 

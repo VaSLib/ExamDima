@@ -27,29 +27,39 @@ namespace Analizz.Menu
 
             new MenuOption()
             {
-                Title = "Доход",
+                Title ="╔════════════════════╗\n" +
+                       "║       Доход        ║\n" +
+                       "╚════════════════════╝",
                 Action = TransactionBills.AddIncome
             },
             new MenuOption()
             {
-                Title = "Расход",
+                Title = "╔════════════════════╗\n" +
+                        "║       Расход       ║\n" +
+                        "╚════════════════════╝",
                 Action= TransactionBills.AddExpenses
             },
             new MenuOption()
             {
-                Title = "Планирования бюджета",
+                Title = "╔════════════════════╗\n" +
+                        "║Планирование бюджета║\n" +
+                        "╚════════════════════╝",
                 Action= BudgetPlanning.SelectBudgetAction
 
             },
             new MenuOption()
             {
-                Title = "Анализа финансов",
+                Title = "╔════════════════════╗\n" +
+                        "║  Анализ финансов   ║\n" +
+                        "╚════════════════════╝",
                 Action = Meneger.SelectAnalysis
 
             },
             new MenuOption()
             {
-                Title = "Выйти",
+                Title = "╔════════════════════╗\n" +
+                        "║       Выйти        ║\n" +
+                        "╚════════════════════╝\n",
                 Action = OnExit,
             },
         };
