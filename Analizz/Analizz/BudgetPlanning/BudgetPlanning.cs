@@ -10,8 +10,21 @@ namespace Analizz.Option
 {
     internal class BudgetPlanning
     {
-        private static List<string> titles = new List<string> { "Планирование дохода", "Планирование расхода", "Удаление запланированного Бюджета" };
-        private static List<string> titlesRemove = new List<string> { "Удаление дохода", "Удаление расхода" };
+        private static List<string> titles = new List<string> { "╔═════════════════════════════════╗\n" +
+                                                                "║       Планирование дохода       ║\n" +
+                                                                "╚═════════════════════════════════╝",
+                                                                "╔═════════════════════════════════╗\n" +
+                                                                "║       Планирование расхода      ║\n" +
+                                                                "╚═════════════════════════════════╝",
+                                                                "╔═════════════════════════════════╗\n" +
+                                                                "║Удаление запланированного Бюджета║\n" +
+                                                                "╚═════════════════════════════════╝" };
+        private static List<string> titlesRemove = new List<string> { "╔═════════════════════╗\n" +
+                                                                      "║   Удаление дохода   ║\n" +
+                                                                      "╚═════════════════════╝",
+                                                                      "╔═════════════════════╗\n" +
+                                                                      "║   Удаление расхода  ║\n" +
+                                                                      "╚═════════════════════╝" };
 
         public static List<BudgetPlanningOption> income = new List<BudgetPlanningOption>(); // Лист запланированных доходов
         public static List<BudgetPlanningOption> expenses = new List<BudgetPlanningOption>(); // Лист запланированных расходов
@@ -140,9 +153,9 @@ namespace Analizz.Option
                 keyInfo = Console.ReadKey(true);
 
                 if (keyInfo.Key == ConsoleKey.UpArrow) { number = (number - 1 + titlesRemove.Count()) % titlesRemove.Count(); }
-                else if (keyInfo.Key == ConsoleKey.DownArrow) { number = (number + 1) % titlesRemove.Count(); }
+                if (keyInfo.Key == ConsoleKey.DownArrow) { number = (number + 1) % titlesRemove.Count(); }
 
-                else if (keyInfo.Key == ConsoleKey.Enter)
+                if (keyInfo.Key == ConsoleKey.Enter)
                 {
                     if (number == 0)
                         RemoveIncome();
